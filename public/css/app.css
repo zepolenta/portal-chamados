@@ -13,6 +13,10 @@ h2 { font-size: 1.05rem; margin: 1.2rem 0 .6rem; color: var(--escuro); }
 .muted, small.muted { color: var(--muted); }
 
 /* Topo */
+.busca-topo { order: 3; width: 100%; }
+.topo .busca-topo input[type=search] { width: 100%; padding: .45rem .7rem; border-radius: 8px; border: 1px solid #ffffff33; background: #ffffff14; color: #fff; font: inherit; }
+.topo .busca-topo input[type=search]::placeholder { color: #cbd5e1; }
+@media (min-width: 900px) { .busca-topo { order: 0; width: auto; flex: 0 1 260px; margin-left: auto; } }
 .topo { background: var(--escuro); color: #fff; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: .6rem 1rem; gap: .5rem; }
 .marca { color: #fff; text-decoration: none; font-size: 1.15rem; display: inline-flex; align-items: center; gap: .5rem; }
 .marca b { color: var(--amarelo); }
