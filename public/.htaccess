@@ -1,0 +1,7 @@
+# Limites de upload (anexos de até 10 MB) para servidores Apache com mod_php
+<IfModule mod_php.c>
+  php_value upload_max_filesize 12M
+  php_value post_max_size 14M
+</IfModule>
+# Não listar diretórios
+Options -Indexes
