@@ -1,0 +1,23 @@
+ServicoSla
+  [OK]    Crítica (4h) aberta seg 09:00 vence seg 13:00
+  [OK]    Crítica aberta seg 15:00 vence ter 10:00 (atravessa a noite)
+  [OK]    Aberta sex 16:00 com 2h vence seg 09:00 (pula fim de semana)
+  [OK]    Aberta sáb 10:00 começa a contar seg 08:00
+  [OK]    Aberta antes do expediente (06:30) conta a partir das 08:00
+  [OK]    Aberta após o expediente (19:00) conta no dia seguinte
+  [OK]    Baixa (36h úteis = 4 dias) seg 08:00 vence qui 17:00
+  [OK]    Minutos úteis entre sex 16:00 e seg 09:00 = 120
+  [OK]    Situação: prazo vencido = VIOLADO
+  [OK]    Situação: resta 30 de 240 min = EM_RISCO
+  [OK]    Situação: resta 180 de 240 min = NO_PRAZO
+  [OK]    Situação: chamado resolvido = ENCERRADO
+ValidadorDocumento
+  [OK]    CPF válido 529.982.247-25
+  [OK]    CPF com dígito errado
+  [OK]    CPF com dígitos repetidos
+  [OK]    CNPJ válido 11.222.333/0001-81
+  [OK]    CNPJ com dígito errado
+  [OK]    CNPJ com tamanho errado
+  [OK]    PF exige CPF (CNPJ informado é inválido)
+
+Resultado: 19 de 19 testes aprovados.

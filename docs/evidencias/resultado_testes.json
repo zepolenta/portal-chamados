@@ -1,0 +1,104 @@
+{
+  "executado_em": "2026-11-17T14:52:25.803Z",
+  "base": "http://127.0.0.1:8080",
+  "resultados": [
+    {
+      "id": "CT01",
+      "descricao": "Login (válido e inválido)",
+      "resultado": "Aprovado",
+      "detalhe": "Senha errada exibe \"E-mail ou senha inválidos\" e não dá acesso; senha correta abre o painel.",
+      "ms": 880
+    },
+    {
+      "id": "CT03",
+      "descricao": "Campos obrigatórios do novo chamado",
+      "resultado": "Aprovado",
+      "detalhe": "Formulário bloqueado com 3 mensagens de campo (título, categoria, descrição).",
+      "ms": 356
+    },
+    {
+      "id": "CT02",
+      "descricao": "Abrir chamado (protocolo e prazos de SLA)",
+      "resultado": "Aprovado",
+      "detalhe": "Chamado PL2026000006 criado com prazos de 1ª resposta e solução calculados (prioridade Alta).",
+      "ms": 364
+    },
+    {
+      "id": "CT04",
+      "descricao": "Anexo (até 10 MB aceito; acima recusado)",
+      "resultado": "Aprovado",
+      "detalhe": "Arquivo de 11 MB recusado na tela e no servidor; imagem pequena anexada e listada para download.",
+      "ms": 646
+    },
+    {
+      "id": "CT05",
+      "descricao": "Interação (resposta na linha do tempo)",
+      "resultado": "Aprovado",
+      "detalhe": "Mensagem exibida na linha do tempo com autor, data e hora.",
+      "ms": 353
+    },
+    {
+      "id": "CT06",
+      "descricao": "Atendimento: assumir e alterar status (histórico)",
+      "resultado": "Aprovado",
+      "detalhe": "Técnico assumiu (Aberto → Em atendimento) e alterou para Aguardando cliente; histórico registrado com usuário e horário.",
+      "ms": 433
+    },
+    {
+      "id": "CT07",
+      "descricao": "Nota interna invisível ao cliente",
+      "resultado": "Aprovado",
+      "detalhe": "Nota interna aparece para o técnico (destacada) e não aparece para o cliente.",
+      "ms": 627
+    },
+    {
+      "id": "CT08",
+      "descricao": "Painel de SLA (chamado vencido aparece como violado)",
+      "resultado": "Aprovado",
+      "detalhe": "Painel mostra 2 chamado(s) com SLA violado e etiquetas no prazo / em risco / violado na fila.",
+      "ms": 178
+    },
+    {
+      "id": "CT09",
+      "descricao": "Cadastro de cliente (CPF/CNPJ inválido ou duplicado)",
+      "resultado": "Aprovado",
+      "detalhe": "CPF inválido e CNPJ duplicado recusados com mensagem clara; CPF válido cadastrado.",
+      "ms": 900
+    },
+    {
+      "id": "CT10",
+      "descricao": "Avaliação do atendimento e uso no celular",
+      "resultado": "Aprovado",
+      "detalhe": "Cliente avaliou com 5 estrelas e o chamado foi fechado; login, painel e abertura de chamado funcionaram no celular (iPhone 13) sem rolagem horizontal.",
+      "ms": 1514
+    },
+    {
+      "id": "SEG01",
+      "descricao": "Cliente não acessa chamado de outra empresa",
+      "resultado": "Aprovado",
+      "detalhe": "Acesso direto pela URL ao chamado de outra empresa retorna 404.",
+      "ms": 11
+    },
+    {
+      "id": "SEG02",
+      "descricao": "Cliente não acessa telas administrativas",
+      "resultado": "Aprovado",
+      "detalhe": "Rota de clientes retorna 403 (acesso negado) para perfil Cliente.",
+      "ms": 4
+    },
+    {
+      "id": "SEG03",
+      "descricao": "Formulário sem token CSRF é recusado",
+      "resultado": "Aprovado",
+      "detalhe": "POST sem token retorna 419 (sessão expirada) e nada é gravado.",
+      "ms": 3
+    },
+    {
+      "id": "SEG04",
+      "descricao": "Texto com HTML é exibido escapado (XSS)",
+      "resultado": "Aprovado",
+      "detalhe": "Conteúdo com tags é mostrado como texto, sem executar scripts.",
+      "ms": 212
+    }
+  ]
+}

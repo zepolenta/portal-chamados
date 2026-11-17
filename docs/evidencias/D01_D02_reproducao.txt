@@ -1,0 +1,20 @@
+Reprodução dos defeitos D01 e D02 — servidor PHP com limites padrão (upload_max_filesize=2M, post_max_size=8M)
+Data: 17/11/2026 — executado pelo desenvolvedor com curl contra o ambiente local
+
+ANTES DA CORREÇÃO
+D01 — anexo de 5 MB (abaixo do limite de negócio de 10 MB)
+  POST ?r=chamados/responder (anexo 5 MB) -> 302
+  Mensagem exibida: "O anexo excede o limite de 10 MB."   <- incorreta: o arquivo tem 5 MB; quem bloqueou foi o PHP (2 MB)
+D02 — anexo de 11 MB (acima do post_max_size)
+  POST ?r=chamados/responder (anexo 11 MB) -> página "Sessão expirada"   <- o PHP descartou o formulário e o token CSRF
+
+CORREÇÃO
+- Limite efetivo calculado = menor valor entre a regra (10 MB) e os limites do servidor (função limite_upload_bytes()).
+- Mensagens e validação no navegador passam a mostrar o limite real.
+- Envio maior que post_max_size é detectado antes do CSRF, com mensagem amigável e retorno à página.
+- Incluídos public/.user.ini e public/.htaccess elevando os limites do servidor para 12M/14M (anexos de até 10 MB).
+
+DEPOIS DA CORREÇÃO (mesmo servidor com limites padrão)
+D01: POST anexo 5 MB -> 302; mensagem: "O anexo excede o limite de 2,0 MB."; rótulo do campo: "Anexo (opcional, até 2,0 MB)"
+D02: POST anexo 11 MB -> 302 de volta ao chamado; mensagem: "O envio excede o limite de 2,0 MB. Escolha um arquivo menor."
+Com public/.user.ini aplicado (12M/14M), o limite volta a ser 10 MB — validado no caso CT04 do roteiro E2E.
