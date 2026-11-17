@@ -27,6 +27,7 @@ Esqueceu a senha? Fale com a Polenta TI pelo WhatsApp ou e-mail. O administrador
 Horário útil: segunda a sexta, das 8h às 17h.
 
 ### Acompanhar e responder
+- Use a **busca no topo** da página: digite o protocolo completo (ex.: PL2026000123) para abrir o chamado direto, ou parte do título para listar os resultados.
 - Em **Meus chamados**, filtre por status, prioridade, período ou busque pelo protocolo.
 - Abra o chamado para ver a conversa, os prazos e o histórico. Escreva em **Nova mensagem** e clique em **Enviar**.
 - Quando o técnico estiver **Aguardando cliente**, sua resposta retoma o atendimento automaticamente.
@@ -45,7 +46,7 @@ Quando o chamado estiver **Resolvido**, escolha de 1 a 5 estrelas, deixe um come
 
 ## 4. Para administradores
 
-- **Clientes:** cadastre pessoa física (CPF) ou jurídica (CNPJ). O sistema confere os dígitos e não aceita documento repetido. Para **mensalistas**, informe plano, horas por mês e vigência do contrato.
+- **Clientes:** cadastre pessoa física (CPF) ou jurídica (CNPJ). O campo recebe a máscara automaticamente (000.000.000-00 ou 00.000.000/0000-00). O sistema confere os dígitos e não aceita documento repetido. Para **mensalistas**, informe plano, horas por mês e vigência do contrato.
 - **Usuários:** crie acessos de clientes (vinculados à empresa), técnicos e administradores. Senha com no mínimo 8 caracteres, com letras e números.
 
 ## 5. Mensagens comuns
