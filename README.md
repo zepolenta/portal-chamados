@@ -5,6 +5,8 @@ Aplicação web para abertura, atendimento e acompanhamento de chamados de supor
 Projeto Integrador Transdisciplinar em Sistemas de Informação II — Cruzeiro do Sul Virtual
 Autor: **Gabriel Naldis do Nascimento** (RGM 40479609)
 
+**Demonstração online:** https://chamados-polenta.infinityfree.io (usuários de demonstração abaixo)
+
 ## Funcionalidades
 
 | Perfil | O que faz |
@@ -12,6 +14,8 @@ Autor: **Gabriel Naldis do Nascimento** (RGM 40479609)
 | Cliente | Abre chamados (com protocolo e prazos de SLA), conversa com o técnico, envia anexos, cancela enquanto aberto, reabre e avalia o atendimento (1 a 5) |
 | Técnico | Fila ordenada por prioridade e vencimento, assume chamados, altera status, registra notas internas, painel de SLA (no prazo / em risco / violado) |
 | Administrador | Tudo do técnico + cadastro de clientes (validação de CPF/CNPJ), contratos de mensalistas e usuários |
+
+Busca rápida no topo: digitar o protocolo completo abre o chamado direto. No cadastro, o CPF/CNPJ recebe máscara automática conforme o tipo de pessoa.
 
 Regras principais: protocolo `PL + ano + 6 dígitos`; prazos contados em horário útil (seg–sex, 8h–17h); toda mudança de status gravada no histórico; notas internas invisíveis ao cliente; cliente só vê chamados da própria empresa.
 
