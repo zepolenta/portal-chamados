@@ -1,0 +1,10 @@
+# Proteção caso o projeto inteiro seja enviado para a raiz do site:
+# bloqueia pastas internas e encaminha o acesso para public/
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(app|config|database|storage|tests|docs)(/|$) - [F,L]
+  RewriteRule ^\.(env|git) - [F,L]
+  RewriteCond %{REQUEST_URI} !/public/
+  RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+Options -Indexes
