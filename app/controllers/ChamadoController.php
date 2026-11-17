@@ -24,9 +24,14 @@ final class ChamadoController extends Controller
             'busca' => trim((string) ($_GET['busca'] ?? '')),
         ];
         if ($f['status'] !== 'ATIVOS' && !isset(Chamado::STATUS[$f['status']])) $f['status'] = '';
+        $chamados = Chamado::listar(Auth::user(), $f);
+        // Busca rápida: protocolo exato abre o chamado direto
+        if ($f['busca'] !== '' && count($chamados) === 1 && strcasecmp($chamados[0]['protocolo'], $f['busca']) === 0) {
+            $this->redirecionar('chamados/ver', ['id' => $chamados[0]['id_chamado']]);
+        }
         $this->view('chamados/index', [
             'titulo' => Auth::ehEquipe() ? 'Fila de chamados' : 'Meus chamados',
-            'chamados' => Chamado::listar(Auth::user(), $f),
+            'chamados' => $chamados,
             'f' => $f,
             'prioridades' => Catalogo::prioridades(),
             'clientes' => Auth::ehEquipe() ? Cliente::ativos() : [],
