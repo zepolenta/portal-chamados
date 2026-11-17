@@ -60,6 +60,24 @@
     atualizar();
   }
 
+  // Máscara de CPF/CNPJ conforme o tipo de pessoa (o servidor guarda só os dígitos)
+  const doc = document.getElementById('cpf_cnpj');
+  if (doc) {
+    const tipo = () => document.querySelector('input[name=tipo_pessoa]:checked')?.value || 'PJ';
+    const mascarar = () => {
+      const max = tipo() === 'PF' ? 11 : 14;
+      const d = doc.value.replace(/\D/g, '').slice(0, max);
+      doc.value = tipo() === 'PF'
+        ? d.replace(/^(\d{3})(\d)/, '$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/\.(\d{3})(\d{1,2})$/, '.$1-$2')
+        : d.replace(/^(\d{2})(\d)/, '$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+           .replace(/\.(\d{3})(\d)/, '.$1/$2').replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+      doc.placeholder = tipo() === 'PF' ? '000.000.000-00' : '00.000.000/0000-00';
+    };
+    doc.addEventListener('input', mascarar);
+    document.querySelectorAll('input[name=tipo_pessoa]').forEach((r) => r.addEventListener('change', mascarar));
+    mascarar();
+  }
+
   // Confirmação de ações irreversíveis
   document.querySelectorAll('form[data-confirmar]').forEach((f) => {
     f.addEventListener('submit', (ev) => {
