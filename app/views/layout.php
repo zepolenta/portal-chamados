@@ -19,6 +19,10 @@ unset($_SESSION['flash']);
 <header class="topo">
   <a class="marca" href="?r=painel/index"><span class="logo">P</span> Polenta <b>Chamados</b></a>
   <button class="menu-btn" type="button" aria-label="Abrir menu" data-toggle="menu">☰</button>
+  <form class="busca-topo" method="get" role="search">
+    <input type="hidden" name="r" value="chamados/index">
+    <input type="search" name="busca" placeholder="Buscar protocolo ou título" aria-label="Buscar chamado por protocolo ou título" value="<?= e($_GET['busca'] ?? '') ?>">
+  </form>
   <nav id="menu">
     <a href="?r=painel/index"<?= $ativo('painel') ?>>Painel</a>
     <a href="?r=chamados/index"<?= $ativo('chamados/index') ?>><?= Auth::ehEquipe() ? 'Fila' : 'Meus chamados' ?></a>
